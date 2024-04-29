@@ -1,0 +1,82 @@
+//
+//Runde Bohrungen ................................................................................
+
+//Bohrung für 3mm/5mm/10mm runde LED mittig (Mindestgröße 1x1)
+Parameter:    	LEDdia=3.0, //bzw. 5.0 oder 10.0
+difference 2: 	translate([xwert*segment/2,ywert*segment/2,-0.1])  cylinder(d=LEDdia, h=10, $fn=32);
+
+//Bohrung für LED nach unten versetzt mit Textfeld darüber (Mindestgröße 1x1, bei 10mm LED 1x2)
+Parameter:    	LEDdia=3.0,     //Bohrung für LED 3mm bzw. 5.0mm oder 10.0mm
+		Btext=6.0,      //Breite Beschriftungsband
+		Ltext=12,       //Länge Beschriftungsband
+		Dtext=0.3,      //Tiefe Beschriftungsfeld, oder Null
+difference 2: 	translate([xwert*segment/2,ywert*segment/2-3,-0.1])  cylinder(d=LEDdia, h=10, $fn=32);
+		translate([xwert*segment/2-Ltext/2,ywert*segment/2,thick-Dtext+0.05])  cube([Ltext, Btext, Dtext]); 
+
+//Bohrung für Kippschalter mittig (Mindestgröße 1x1)
+Parameter:    	KSWdia=6.0,
+difference 2: 	translate([xwert*segment/2,ywert*segment/2,-0.1])
+		cylinder(d=KSWdia, h=10, $fn=32);
+
+//Bohrung für Drehschalter mit 3mm-Pin (Mindestgröße 2x2)
+Parameter:    	RSWdia=9.2,RSWdist=9.4,RSWpin=3.0,
+difference 2: 	translate([xwert*segment/2,ywert*segment/2,-0.1])
+		cylinder(d=RSWdia, h=10, $fn=32);
+		translate([xwert*segment/2+RSWdist,ywert*segment/2,-0.1])
+		cylinder(d=RSWpin, h=1.5, $fn=32);
+
+//Bohrung für Potentiometer 3mm-Schaft (Mindestgröße 1x1)
+Parameter:    	POTdia=6.8,
+difference 2: 	translate([xwert*segment/2,ywert*segment/2,-0.1])
+		cylinder(d=POTdia, h=10, $fn=32);
+
+//Bohrung für 4mm-Polklemme M4 (Mindestgröße 1x1)
+Parameter:    	TRMdia=4.0,
+difference 2: 	translate([xwert*segment/2,ywert*segment/2,-0.1])
+		cylinder(d=TRMdia, h=10, $fn=32);
+
+//Bohrung für 4mm-Telefonbuchse (Mindestgröße 1x1)
+Parameter:    	TRSdia=6.0,
+difference 2: 	translate([xwert*segment/2,ywert*segment/2,-0.1])
+		cylinder(d=TRSdia, h=10, $fn=32);
+
+//Bohrung für 4mm-MC-Buchse (Mindestgröße 2x2)
+Parameter:    	MCdia=11.8,MCdist=10.4,
+difference 2: 	translate([xwert*segment/2,ywert*segment/2,-0.1])
+		cylinder(d=MCdia, h=10, $fn=32);
+union 1:	translate([xwert*segment/2-5,ywert*segment/2+MCdist/2,0])
+		cube([10,3,thick]);
+		translate([xwert*segment/2-5,ywert*segment/2-MCdist/2-3,0])
+		cube([10,3,thick]);	
+
+//Bohrung für BNC-Buchse (Mindestgröße 1x1)
+Parameter:    	BNCdia=9.5,BNCdist=8.0,
+difference 2: 	translate([xwert*segment/2,ywert*segment/2,-0.1])
+		cylinder(d=BNCdia, h=10, $fn=32);
+union 1:	translate([xwert*segment/2-5,ywert*segment/2+BNCdist/2,0])
+		cube([10,3,thick]);
+		translate([xwert*segment/2-5,ywert*segment/2-BNCdist/2-3,0])
+		cube([10,3,thick]);
+
+//
+//Rechteckige Ausschnitte ................................................................................
+
+//Ausschnitt für 5mm Rechteck-LED (Mindestgröße 1x1)
+Parameter:    	LEDr=5.0,
+difference 2:	translate([xwert*segment/2-LEDr/2,ywert*segment/2-LEDr/2,-0.1])
+		cube([LEDr, LEDr, 10]);
+
+//Ausschnitt für 5mmx3mm Rechteck-LED (Mindestgröße 1x1)
+Parameter:    	LEDB=5.0,LEDH=3.0,
+difference 2:	translate([xwert*segment/2-LEDB/2,ywert*segment/2-LEDH/2,-0.1])
+		cube([LEDB, LEDH, 10]);
+
+//Ausschnitt für Panelmeter 3-stellig (Mindestgröße 2x1)
+Parameter:    	PM3B=22.5,PM3H=14.5,
+difference 2:	translate([xwert*segment/2-PM3B/2,ywert*segment/2-PM3H/2,-0.1])
+		cube([PM3B, PM3H, 10]);
+
+//Ausschnitt für Panelmeter 4-stellig (Mindestgröße 2x1)
+Parameter:    	PM4B=30,PM4H=14.2,
+difference 2:	translate([xwert*segment/2-PM4B/2,ywert*segment/2-PM4H/2,-0.1])
+		cube([PM4B, PM4H, 10]);
