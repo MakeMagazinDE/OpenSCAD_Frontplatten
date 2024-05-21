@@ -1,4 +1,4 @@
-![GitHub Logo](http://www.heise.de/make/icons/make_logo.png)
+![GitHub Logo](https://github.com/MakeMagazinDE/OpenSCAD_Frontplatten/blob/main/make_logo.jpg)
 
 Maker Media GmbH
 
